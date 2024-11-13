@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import BookForm from './BookForm';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+
+import BookDetails from './BookDetails'; 
+
+
 import BookList from './BookList';
-import EditBook from './EditBook'; // Import your EditBook component
-import ViewBook from './ViewBook'; // Import your ViewBook component
-import "./app.css";
+import BookForm from './BookForm';
 
 class App extends Component {
     render() {
@@ -14,17 +15,19 @@ class App extends Component {
                     <div className="ui fixed inverted menu">
                         <div className="ui container">
                             <Link to="/" className="header item">Home</Link>
-                            <Link to="/add-book" className="header item">Add Book</Link>
+                            <Link to="/Add-book" className="header item">Add Book</Link>
+                            <Link to="/View" className="header item">View</Link>
+                            <Link to="/Edit" className="header item">Edit</Link>
                         </div>
                     </div>
 
                     <div className="ui main container">
-                        <Switch>
-                            <Route path="/" exact component={BookList} />
-                            <Route path="/add-book" component={BookForm} />
-                            <Route path="/edit/:id" component={EditBook} />
-                            <Route path="/view/:id" component={ViewBook} />
-                        </Switch>
+                        <Routes>
+                            <Route path="/" element={<BookList />} /> 
+                            <Route path="/add-book" element={<BookForm />} />
+                            <Route path="/View" element={<BookDetails />} />
+                            <Route path="/Edit" element={<BookForm />} />
+                        </Routes>
                     </div>
                 </div>
             </Router>

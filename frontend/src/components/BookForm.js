@@ -1,38 +1,59 @@
-import React, { Component } from 'react';
-import './app.css'; // Make sure to import the CSS file
+import React, { useState } from 'react';
 
-class BookForm extends Component {
-    render() {
-        return (
-            <div className="ui form">
-                <div className="form-container">
-                    <div className="field">
-                        <label>Title</label>
-                        <input type="text" name="title" placeholder="Title" />
-                    </div>
-                    <div className="field">
-                    <label>author</label>
-                        <input type="text" name="author" placeholder="Author" />
-                    </div>
-                    <div className="field">
-                    <label>Published Year</label>
-                        <input type="number" name="published_year" placeholder="Published Year" />
-                    </div>
-                    <div className="field">
-                    <label>Genre</label>
-                        <input type="text" name="genre" placeholder="Genre" />
-                    </div>
-                    <div className="field">
-                        <label>Description</label>
-                        <textarea rows="2" cols="50" name="description" placeholder="Description"></textarea>
-                    </div>
-                    <div className='field'>
-                        <button className='ui primary button submit-button'>Add Book</button>
-                    </div>
+const BookForm = () => {
+    // State to hold the form data
+    const [title, setTitle] = useState('');
+    const [author, setAuthor] = useState('');
+    const [description, setDescription] = useState('');
+
+    // Function to handle form submission
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // You can handle the form data here (e.g., send it to an API)
+        console.log('Book submitted:', { title, author, description });
+        // Reset the form fields
+        setTitle('');
+        setAuthor('');
+        setDescription('');
+    };
+
+    return (
+        <div>
+            <h2>Add a New Book</h2>
+            <form onSubmit={handleSubmit}>
+                <div>
+                    <label htmlFor="title">Title:</label>
+                    <input
+                        type="text"
+                        id="title"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        required
+                    />
                 </div>
-            </div>
-        );
-    }
-}
+                <div>
+                    <label htmlFor="author">Author:</label>
+                    <input
+                        type="text"
+                        id="author"
+                        value={author}
+                        onChange={(e) => setAuthor(e.target.value)}
+                        required
+                    />
+                </div>
+                <div>
+                    <label htmlFor="description">Description:</label>
+                    <textarea
+                        id="description"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                        required
+                    />
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    );
+};
 
 export default BookForm;

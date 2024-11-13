@@ -1,9 +1,23 @@
 .ui.celled.table {
-    margin-top: 200px;
+    margin-top: 100px;
+    margin-left: auto;  /* Center the table horizontally */
+    margin-right: auto; /* Center the table horizontally */
+}
+
+.ui.celled.table {
+    margin: 500px auto; /* Centers the table and adds top margin */
+}
+
+.table-container {
+    display: flex;
+    justify-content: center; /* Centers the table horizontally */
+    margin-top: 100px; /* Adjust the margin as needed */
+    margin-left: 300px;
 }
 ui.button{
     margin-top: 500px;
 }
+
 .form-container {
     display: flex;
     flex-direction: column; /* Stack elements vertically */
