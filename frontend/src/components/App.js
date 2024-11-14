@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Home from './pages/Home';
+import AddBook from './pages/AddBook';
+import ViewBook from './pages/ViewBook';
+import EditBook from './pages/EditBook';
 
-import BookDetails from './BookDetails'; 
-
-
-import BookList from './BookList';
-import BookForm from './BookForm';
 
 class App extends Component {
     render() {
@@ -23,10 +22,11 @@ class App extends Component {
 
                     <div className="ui main container">
                         <Routes>
-                            <Route path="/" element={<BookList />} /> 
-                            <Route path="/add-book" element={<BookForm />} />
-                            <Route path="/View" element={<BookDetails />} />
-                            <Route path="/Edit" element={<BookForm />} />
+                            <Route path="/" element={<Home />} /> 
+                            <Route path="/add-book" element={<AddBook />} />
+                            <Route path="/View" element={<ViewBook />} />
+                            <Route path="/edit-book" element={<EditBook />} />
+
                         </Routes>
                     </div>
                 </div>
