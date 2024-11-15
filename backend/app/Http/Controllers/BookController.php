@@ -41,7 +41,7 @@ class BookController extends Controller
         }
 
         // Create a new book instance
-        $book = new Book(); // Changed from Books to Book
+        $book = new Book(); 
         $book->title = $request->title;
         $book->author = $request->author;
         $book->published_year = $request->published_year;
@@ -51,8 +51,8 @@ class BookController extends Controller
 
         return response()->json([
             'message' => 'Book created successfully',
-            'data' => new BookResource($book) // Return the created resource
-        ], 201); // Changed status code to 201 for resource creation
+            'data' => new BookResource($book) 
+        ], 201);
     }
 
     /**
@@ -76,8 +76,10 @@ class BookController extends Controller
        $book->genre = $request->genre;
        $book->description = $request->description;
        $book->save();
-       return response()->json($book);
+       return response()->json([
 
+        'message' => 'Product Updated  Successfully',
+    ], 200);
     }
 
     /**

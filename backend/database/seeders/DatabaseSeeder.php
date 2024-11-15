@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Book; // Change to singular form if your model is named Book
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,7 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        Book::table('Book')->insert([
+        DB::table('books')->insert([
             'title' => 'Test User', 
             'author' => 'Alxen',
             'published_year' => '1999',
